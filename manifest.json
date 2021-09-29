@@ -1,0 +1,42 @@
+{
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "manifest_version": 2,
+    "name": "Twitch clicker",
+    "description": "Automatically claims 'Channel Points' on Twitch",
+    "version": "1.0.1",
+    "icons": {
+        "128": "icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.twitch.tv/*"
+            ],
+            "js": [
+                "clicker.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+     "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "permissions": [
+        "*://*.twitch.tv/*",
+        "tabs",
+        "storage",
+        "webNavigation"
+    ],
+    "web_accessible_resources": [
+        "clicker.js"
+    ],
+    "browser_action": {
+        "default_title": "Twitch clicker",
+        "default_icon": {
+            "128": "icon128.png"
+        }
+    }
+}
